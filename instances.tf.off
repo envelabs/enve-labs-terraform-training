@@ -1,0 +1,36 @@
+resource "aws_instance" "enve-webapp-srvr1" {
+  ami                    = "ami-0ac80df6eff0e70b5"
+  instance_type          = "t2.micro"
+  key_name               = "enve-labs-key"
+  vpc_security_group_ids = [aws_security_group.enve-webapp-sg.id]
+
+  root_block_device {
+    volume_size = "8"
+  }
+
+  user_data = <<-EOF
+              #!/bin/bash
+              echo "<h1>Hello world, welcome to terraform labs</h1>" > index.html
+              nohup busybox httpd -f -p ${var.http_port} &
+              EOF
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo hostname enve-webapp-srvr1",
+      "sudo bash -c 'echo enve-webapp-srvr1 > /etc/hostname'",
+      "sudo /usr/bin/perl -pi -ne 's/(^127.0.0.1 localhost)/$1 enve-webapp-srvr1/' /etc/hosts",
+    ]
+
+    connection {
+      host        = self.public_ip
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file("keys/enve-labs-key.pem")
+    }
+  }
+
+  tags = {
+    Name = "enve-webapp-srvr1"
+    env  = "dev"
+  }
+}

@@ -1,0 +1,23 @@
+resource "aws_security_group" "auth-prod-elb-sg" {
+  name = "auth-prod-elb-sg"
+  description = "allow inbound traffic for sf auth server"
+
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["10.9.160.0/24","10.9.220.0/24","10.9.224.0/24","10.10.0.0/16","10.20.0.0/16","10.40.0.0/16","192.168.43.0/24"]
+    security_groups = ["sg-52729c2e", "sg-3367f579"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags {
+    Name = "auth-prod-elb-sg"
+  }
+}
