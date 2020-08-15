@@ -1,13 +1,12 @@
-resource "aws_security_group" "auth-prod-elb-sg" {
-  name = "auth-prod-elb-sg"
-  description = "allow inbound traffic for sf auth server"
+resource "aws_security_group" "enve-webapp-elb-sg" {
+  name = "enve-webapp-elb-sg"
+  description = "allow inbound traffic to enve-webapp-elb"
 
   ingress {
-    from_port   = 443
-    to_port     = 443
+    from_port   = 8080 
+    to_port     = 8080
     protocol    = "tcp"
-    cidr_blocks = ["10.9.160.0/24","10.9.220.0/24","10.9.224.0/24","10.10.0.0/16","10.20.0.0/16","10.40.0.0/16","192.168.43.0/24"]
-    security_groups = ["sg-52729c2e", "sg-3367f579"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -18,6 +17,6 @@ resource "aws_security_group" "auth-prod-elb-sg" {
   }
 
   tags {
-    Name = "auth-prod-elb-sg"
+    Name = "enve-webapp-elb-sg"
   }
 }
