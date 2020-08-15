@@ -10,7 +10,7 @@ resource "aws_instance" "enve-webapp-srvr1" {
 
   user_data = <<-EOF
               #!/bin/bash
-              echo "<h1>Hello world, welcome to terraform labs</h1>" > index.html
+              echo "<h1>Hello world, welcome to terraform labs... and now with our own domain envelabs.com</h1>" > index.html
               nohup busybox httpd -f -p ${var.http_port} &
               EOF
 
