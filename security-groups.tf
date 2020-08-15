@@ -4,16 +4,16 @@ resource "aws_security_group" "enve-webapp-sg" {
 
   # ssh access for ssh
   ingress {
-    from_port   = 22
-    to_port     = 22
+    from_port   = var.ssh_port
+    to_port     = var.ssh_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   # ssh access for httpd
   ingress {
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = var.http_port
+    to_port     = var.http_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
