@@ -3,7 +3,7 @@ resource "aws_security_group" "enve-webapp-elb-sg" {
   description = "allow inbound traffic to enve-webapp-elb"
 
   ingress {
-    from_port   = 8080 
+    from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
@@ -16,7 +16,7 @@ resource "aws_security_group" "enve-webapp-elb-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "enve-webapp-elb-sg"
   }
 }
