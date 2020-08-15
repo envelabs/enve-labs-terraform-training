@@ -1,6 +1,6 @@
 resource "aws_route53_record" "enve-webapp-srvr1" {
   zone_id = "Z04164709DVPTWJDONB9"
-  name    = "enve-webapp-srvr1.envelabs.com"
+  name    = "test.envelabs.com"
   #type    = "A"
   type    = "CNAME"
   ttl     = "300"
