@@ -8,7 +8,7 @@ resource "aws_launch_configuration" "enve-webapp-lc" {
   user_data = <<-EOF
               #!/bin/bash
               echo "<h1>Hello world, welcome to terraform labs</h1>" > index.html
-              nohup busybox httpd -f -p ${var.http_port} &
+              nohup busybox httpd -f -p ${var.webapp_port} &
               EOF
 
   lifecycle {
