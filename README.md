@@ -1,14 +1,14 @@
-# enve-labs-terraform-training
-`terrarom` is an orchestration tool that provides support for infrastructure as code definition for resources management
+# Enve Labs Terraform Training
+Terrarom is an orchestration tool for resources management (Cloud, on-promise, etc.) that provides `Infrastructure as Code` definition
 
 ### initialize project
-in order to config local settings and download the modules needed to interact with the infrastructure api providers (AWS, Google Cloud, Azure, etc), we need to initialize the project the first time
+in order to config local settings and download the modules needed to interact with the infrastructure api provider (AWS, Google Cloud, Azure, etc), we need to initialize the project the first time
 ```
 terraform init
 ```
 
 ### test the project
-in order to validate beforehand the TF code and what we are going to deploy, we `plan` the execution of any changes
+validate the changes to be applied with an execution `plan` test
 ```
 terraform plan
 ```
