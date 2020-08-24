@@ -1,8 +1,9 @@
 resource "aws_security_group" "enve-webapp-sg" {
   name        = "enve-webapp-sg"
+  vpc_id      = aws_vpc.enve-labs-vpc.id
   description = "enve webapp security group"
 
-  # ssh access for ssh
+  # access for ssh
   ingress {
     from_port   = var.ssh_port
     to_port     = var.ssh_port
@@ -10,10 +11,10 @@ resource "aws_security_group" "enve-webapp-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # ssh access for httpd
+  # access for webapp
   ingress {
-    from_port   = var.http_port
-    to_port     = var.http_port
+    from_port   = var.webapp_port
+    to_port     = var.webapp_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
