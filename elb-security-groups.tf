@@ -1,10 +1,11 @@
 resource "aws_security_group" "enve-webapp-elb-sg" {
   name = "enve-webapp-elb-sg"
+  vpc_id      = aws_vpc.enve-labs-vpc.id
   description = "allow inbound traffic to enve-webapp-elb"
 
   ingress {
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = var.http_port
+    to_port     = var.http_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
