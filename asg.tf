@@ -11,7 +11,6 @@ resource "aws_autoscaling_group" "enve-webapp-asg" {
   tag {
     key                 = "Name"
     value               = "enve-webapp-srvr"
-    terraformed = "true"
     propagate_at_launch = true
   }
 }
