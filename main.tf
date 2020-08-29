@@ -1,5 +1,5 @@
 provider "aws" {
-  region  = var.region
+  region  = "us-east-1"
 }
 
 data "aws_availability_zones" "all" {}
@@ -15,8 +15,8 @@ data "aws_subnet_ids" "all" {
 # bucket for terraform state
 terraform {
   backend "s3" {
-    region = var.region
-    bucket = var.enve-labs-tf-state
-    key    = var.enve-labs-tf-state-key
+    region = "us-east-1"
+    bucket = "enve-labs-tf-state"
+    key    = "enve-labs-dev-tf-state"
   }
 }
