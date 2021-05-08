@@ -1,5 +1,5 @@
 resource "aws_instance" "enve-webapp-srvr1" {
-  ami                    = "ami-0ac80df6eff0e70b5"
+  ami                    = "ami-09e67e426f25ce0d7"
   instance_type          = "t2.micro"
   key_name               = "enve-labs-key"
   vpc_security_group_ids = [aws_security_group.enve-webapp-sg.id]
