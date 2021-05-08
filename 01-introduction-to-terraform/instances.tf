@@ -25,7 +25,7 @@ resource "aws_instance" "enve-webapp-srvr1" {
       host        = self.public_ip
       type        = "ssh"
       user        = "ubuntu"
-      private_key = file("keys/enve-labs-key.pem")
+      private_key = file("/opt/keys/envelabs/enve-labs-key.pem")
     }
   }
 
