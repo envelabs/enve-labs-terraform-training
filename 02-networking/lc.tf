@@ -1,6 +1,6 @@
 resource "aws_launch_configuration" "enve-webapp-lc" {
   name_prefix   = "enve-webapp-lc-"
-  image_id        = "ami-0ac80df6eff0e70b5"
+  image_id        = "ami-09e67e426f25ce0d7"
   instance_type   = "t2.micro"
   key_name        = "enve-labs-key"
   security_groups = [aws_security_group.enve-webapp-sg.id]
