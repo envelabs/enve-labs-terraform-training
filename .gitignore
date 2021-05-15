@@ -1,5 +1,6 @@
 keys
 .vagrant
 .terraform
+.terraform.lock.hcl
 *.tfstate
 *.tfstate.backup
