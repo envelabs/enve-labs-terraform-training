@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 80
   config.vm.network "forwarded_port", guest: 8080, host: 8080
 
-  config.vm.synced_folder "./share/", "/home/vagrant/share"
+  config.vm.synced_folder "./", "/home/vagrant/share"
 
   config.vm.provider :virtualbox do |vb|
     vb.name = "enve-labs-terraform-vm"
