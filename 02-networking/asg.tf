@@ -3,7 +3,7 @@ resource "aws_autoscaling_group" "enve-webapp-asg" {
   vpc_zone_identifier  = [aws_subnet.enve-labs-pub-sn-a.id, aws_subnet.enve-labs-pub-sn-b.id]
 
   min_size = 2
-  max_size = 6
+  max_size = 4
 
   load_balancers= [aws_elb.enve-webapp-elb.id]
   health_check_type="ELB"
