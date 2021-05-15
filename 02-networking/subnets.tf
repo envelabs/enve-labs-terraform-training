@@ -8,7 +8,6 @@ resource "aws_subnet" "enve-labs-pub-sn-a" {
   tags = {
     Name        = "enve-labs-pub-sn-a"
     env         = "dev"
-    terraformed = "true"
   }
 }
 
@@ -18,7 +17,6 @@ resource "aws_route_table" "enve-labs-rt-pub-sub-a" {
   tags = {
     Name        = "enve-labs-rt-pub-sub-a"
     env         = "dev"
-    terraformed = "true"
   }
 }
 
@@ -55,7 +53,6 @@ resource "aws_subnet" "enve-labs-pub-sn-b" {
   tags = {
     Name        = "enve-labs-pub-sn-b"
     env         = "dev"
-    terraformed = "true"
   }
 }
 
@@ -65,7 +62,6 @@ resource "aws_route_table" "enve-labs-rt-pub-sub-b" {
   tags = {
     Name        = "enve-labs-rt-pub-sub-b"
     env         = "dev"
-    terraformed = "true"
   }
 }
 
