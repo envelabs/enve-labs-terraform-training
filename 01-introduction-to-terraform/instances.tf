@@ -14,21 +14,6 @@ resource "aws_instance" "enve-webapp-srvr1" {
               nohup busybox httpd -f -p ${var.http_port} &
               EOF
 
-  provisioner "remote-exec" {
-    inline = [
-      "sudo hostname enve-webapp-srvr1",
-      "sudo bash -c 'echo enve-webapp-srvr1 > /etc/hostname'",
-      "sudo /usr/bin/perl -pi -ne 's/(^127.0.0.1 localhost)/$1 enve-webapp-srvr1/' /etc/hosts",
-    ]
-
-    connection {
-      host        = self.public_ip
-      type        = "ssh"
-      user        = "ubuntu"
-      private_key = file("/opt/keys/envelabs/enve-labs-key.pem")
-    }
-  }
-
   tags = {
     Name = "enve-webapp-srvr1"
     env  = "dev"
