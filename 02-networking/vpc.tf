@@ -5,7 +5,6 @@ resource "aws_vpc" "enve-labs-vpc" {
   tags = {
     Name        = "enve-labs-vpc"
     env         = "dev"
-    terraformed = "true"
   }
 }
 
@@ -15,6 +14,5 @@ resource "aws_internet_gateway" "enve-labs-igw" {
   tags = {
     Name        = "enve-labs-igw"
     env         = "dev"
-    terraformed = "true"
   }
 }
