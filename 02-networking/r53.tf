@@ -3,7 +3,7 @@ resource "aws_route53_record" "enve-webapp-srvr1" {
   name    = "webapp.envelabs.com"
   type    = "CNAME"
   ttl     = "300"
-  records = [aws_elb.enve-webapp-elb.dns_name]
+  records = [aws_instance.enve-webapp-srvr1.public_ip]
 }
 
 
