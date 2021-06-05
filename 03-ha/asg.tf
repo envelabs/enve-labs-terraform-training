@@ -1,4 +1,5 @@
 resource "aws_autoscaling_group" "enve-webapp-asg" {
+  name                 = "enve-webapp-asg"
   launch_configuration = aws_launch_configuration.enve-webapp-lc.name
   vpc_zone_identifier  = [aws_subnet.enve-labs-pub-sn-a.id, aws_subnet.enve-labs-pub-sn-b.id]
 
