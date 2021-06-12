@@ -7,7 +7,7 @@ resource "aws_launch_configuration" "enve-webapp-lc" {
 
   user_data = <<-EOF
               #!/bin/bash
-              echo "<h1>Hello world, welcome to terraform labs with a DB https://rds.envelabs.com</h1>" > index.html
+              echo "<h3>Hello world, welcome to terraform labs from $(hostname) </h3>" > index.html
               nohup busybox httpd -f -p ${var.webapp_port} &
               EOF
 
